@@ -21,3 +21,5 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 #url
 https://www.freakyjolly.com/angular-datepicker-timepicker-using-ng-pick-datetime-tutorial-by-example/
+#demo
+https://stackblitz.com/edit/owl-datetimepicker
