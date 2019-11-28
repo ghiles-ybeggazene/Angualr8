@@ -1,1 +1,62 @@
+   subject
 
+
+
+#service
+
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Subject } from 'rxjs/Subject';
+ 
+ 
+@Injectable()
+export class DataShareService {
+ 
+    shareDataSubject = new Subject<any>(); //Decalring new RxJs Subject
+ 
+     sendDataToOtherComponent(somedata){
+      this.shareDataSubject.next(somedata);
+  }
+}
+
+
+#component 1
+
+import { DataShareService } from './datashare.service';
+import { Component, OnInit } from '@angular/core';
+ 
+@Component({
+  selector: 'data-pass',
+  templateUrl: './datapassing.component.html',
+  styleUrls: ['./datapassing.component.css']
+})
+export class DataPassingComponent {
+   
+  constructor( private dataShareService: DataShareService) { }
+ 
+  passData(){
+    this.dataShareService.DataShareService("data you want to pass");
+  }
+}
+
+
+
+#component 2
+
+import { DataShareService } from './datashare.service';
+import { Component, OnInit } from '@angular/core';
+ 
+@Component({
+  selector: 'data-receive',
+  templateUrl: './datareceiving.component.html',
+  styleUrls: ['./datareceiving.component.css']
+})
+export class DataReceivingComponent {
+   
+  constructor( private dataShareService: DataShareService) { 
+       this.dataShareService.shareDataSubject.subscribe(receiveddata=>{
+       console.log(receiveddata); 
+    });
+   }
+ 
+}
