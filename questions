@@ -1,0 +1,191 @@
+What is the need of Angular?
+→Because it uses MVW (Model View Whatever) pattern and it is Binding Framework which binds view and model.
+
+What is a directive in Angular?
+→Directives are instructions to DOM(Document Object Model) element. There are Four types of directive
+
+Component Directives :- It used in main class. It provides metadata that determine how the component should be processed and used at run time.
+
+Attribute Directives :- It is used to change the look and behaviour of your DOM element.For example ngClass, ngStyle.
+
+Structural Directives :-It starts with a ( * ) sign. This directives are used to manipulate or handle and change the structure of your DOM element. For example *ngIf, *ngFor, *ngSwitch.
+
+Custom Directives :- This are used for reusable component.  
+
+What is the use of Node and the importance of NPM?
+→ Node is a javascript runtime which uses chorme v8 engine internally. It use to run your javascript code outside the browser. NPM stands for Node Package Manager which used to download javascript framework online.  
+
+Explain package.json file and what the npm command to create it?
+→ It has all the javascript reference needed for the project. So rather than installing one at a time we can install all packages in one go. NPM command to create Package.json file is ( npm init )
+
+What is the term Angular One?
+→ It is an old angular which uses javascript but not typescript for writing logics. /p>
+
+What is the term MVW?
+→ It stands for Model View Whatever and it is an MVW pattern.
+
+What does npm install command do?
+→ It installs all the frameworks which has entry in package.json file.
+
+What is the need of Angular CLI?
+→ By using Angular CLI we can create a basic Angular Project Template.
+
+What does -g means in NPM command?
+→ It is used to install your frameworks globally.
+
+Explain the semantic versioning of Package.json?
+→ Semantic versioning helps you understand the potential impact of updating to a new version.
+
+What is ^ and ~ sign in package.json?
+→ ( ^ ) Caret sign is used to install latest minor and revision versions and (~) Tilt sign is used to install latest revision versions.
+
+What are components and modules in Angular?
+→ Component binds view and model. Modules groups the component.
+
+When should we use [] vs ()?
+→ [] is get called from object to view and () is get called from view to object.
+
+What is TemplateURL ?
+→ We can render our html code with the @component decorator using template.
+
+Why do we need selectors?
+→ The selector attribute allows us to define how Angular is identified when the component is used in HTML.
+
+Explain the bootstrapping of Angular framework?
+→ Declared component in Module which component should invoke first.
+
+Why do we need typescript in Angular?
+→ Typescript language gives you feel of Object Oriented Programming while coding in angular.
+
+What is routing and how to implement it?
+→ Routing helps in directing user to different page. We Implement by creating a routing.ts file and give path and component name to route. In View.html file using [ routerLink ] we map to the routing.ts file path name.
+
+How to do routing from the HTML and from the component?
+→ In HTML file <a> tag we pass [ routerLink ] and map to path name of routing.ts file. To load the component.ts file we have <router-outlet> tag where we put inside <div> tag to load particular component.
+
+What is the Advantage of Lazy loading?
+→ Lazy Loading helps you to load modules on demand.
+
+What does LoadChildren do?
+→ The LoadChildren properly tells the router to fetch the module.ts when and only when the user navigates to route path, then merge the two router configurations and finally activate the declared component.
+
+What is forRoot and forChild?
+→ forRoot creates a module that contain all the directives, the given routes and the router service itself. forChild creates a module that contains all the directives and the given routes, but does not include router service.
+
+How to loop in Angular?
+→ Using *ngFor structural directive.
+
+How to call a click event in component?
+→ In html we have click event in angular, we provide click() to that event and call it in component.
+
+How to make HTTP calls?
+→ We import HttpClient in component and inject it in constructor, object of injected httpclient we use for http post get put delete in particular methods.
+
+Whats an observer in HTTP?
+→ Angular uses the observer pattern which simply means — observable object are registered and other objects observe(in angular using the subscribe method) them and take action when the observable object is acted on in the some way.
+
+What is the subscribe method in HTTP?
+→ In angular subscribe is a method on the observable type. The Observable store the Asynchronous stream data and later it subscribe to the subscribe method.
+
+How to share global data across Components?
+→ Using services and Dependency injection in angular.
+
+How to debug VS code?
+→ To debug in VS code we need to install “ Debugger for Chrome ” extension.
+
+How can we create reusable UI controls in Angular?
+→ Using Input, Output and Event Emitter.
+
+What are input outputs?
+→ Exchange data between components. Input is used to receive data in whereas Output is to send data out.
+
+How does output emitter work in Angular?
+→ Output sends data out by exposing event producers, usually EventEmitter objects.
+
+How to call one component in other component?
+→ Using Angular service.
+
+What is ViewChild?
+→ ViewChild returns the first element that match a given component, Directive or template reference selector.
+
+How you do validations in Angular?
+→ By using Reactive forms provide a model-driven approach, and in model we write validations using ngForm, FormControl, FromGroup, validators and FormBuilder.
+
+What is the importance of Reactive forms?
+→ Reactive forms provide a model-driven approach to handling form inputs whose values change over time.
+
+How can we show error message as per the validations?
+→ using valid, unvalid, dirty, pristine, touched and untouched.
+
+How can we enable and disable UI as per validation?
+→ Using disabled keyword provides by angular, where we can say the formGroup.valid() if it is true then it will disable and if not it will enable.
+
+Explain FormGroup , FormControl and Validation?
+→ FormControl :- It is class that is used to get and set values and validation of form control.
+
+    FormGroup :- It has the role to track value and validity state of group of FormControl.
+
+    Validation :- To validate a form created by FormControl. we need to use Validators that belongs to @angular/forms library.
+
+What are different FormControl states , dirty , pristine, touched, Untouched, Valid and UnValid?
+→ Dirty is true if user changed the value of the control.
+
+Pristine is the opposite of Dirty.
+
+Touched is true of the field has been touched by the user, Otherwise it's false.
+
+The apposite of Touched is UnTouched.
+
+Valid is true of the field doesn't have any validators.
+
+UnValid is apposite of Valid.
+
+Explain Angular life cycle hooks and the sequence?
+→ Angular Life cycle hooks starts with
+
+ngOnChanges()
+
+ngOnInit()
+
+ngDoCheck()
+
+ngAfterContentInit()
+
+ngAfterContentChecked()
+
+ngAfterViewInit()
+
+ngAfterViewChecked()
+
+ngOnDestroy()
+
+What are pipes?
+→ Pipes are use to transform your expressions, like you need to change your datetime format, Currency and many more.
+
+What is Typings?
+→ It gives you intellisense for methods which are in jquery library.
+
+How to integrate jQuery with Angular?
+→ First we install jQuery and then install @types/jquery and then import it in your component. By importing the jQuery you will get all the intellisense of the jquery methods.
+
+What is DI , IOC , how to implement , advantage?
+→ DI (Dependency injection) where we change at one place it should reflect in various places. IOC (Inversion Of Control)is principle and we can use it by providing it in constructor.
+
+What is Data-Binding and types of data binding?
+→ Data-Binding are used to bind View and component. There are three types of data bindings.
+
+Property Binding :- we use square bracket for property binding.
+
+Event Binding :- we use round bracket for event binding.
+
+Two-way Binding :- We use both Round and Square bracket for Two-way binding.Event Binding :- we use round bracket for event binding.
+
+What is compiler and which Compiler angular uses?
+→ Compiler is use to compiler your html and ts files to machine readable code. Angular uses Ahead of Time Compilation (AOT).
+
+
+
+
+
+
+http://www.learnangularjs.net/top-angular-interview-questions-answers.php
