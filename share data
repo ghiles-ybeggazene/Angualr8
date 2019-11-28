@@ -60,3 +60,91 @@ export class DataReceivingComponent {
    }
  
 }
+
+
+
+
+
+
+
+   #BehaviorSubject
+
+
+
+
+   #data.service.ts
+
+
+import {Injectable} from  '@ angular / core' ; 
+importer {BehaviorSubject} de  'rxjs' ;
+
+@Injectable () 
+export  class DataService {
+
+  messageSource privé = nouveau BehaviorSubject ( 'message par défaut' ); 
+  currentMessage = this .messageSource.asObservable ();
+
+  constructeur () { }
+
+  changeMessage (message: string ) { this .messageSource.next (message)   }
+}
+
+
+
+   #parent.component.ts
+
+
+
+importer {Component, OnInit} à partir de  '@ angular / core' ; 
+importer {DataService} de  "../data.service" ;
+
+@Component ({ 
+  selector: 'app-parent' , 
+  template: ` 
+    {{message}} 
+  ` , 
+  styleUrls: [ './sibling.component.css' ] 
+}) La classe d' 
+exportation  ParentComponent implémente OnInit {
+
+  message:string;
+
+  constructeur ( données privées : DataService ) {}
+
+  ngOnInit () { this .data.currentMessage.subscribe ( message => this .message = message)   }
+}
+
+
+
+
+  #sibling.component.ts
+
+
+
+
+importer {Component, OnInit} à partir de  '@ angular / core' ; 
+importer {DataService} de  "../data.service" ;
+
+@Component ({ 
+  selector: 'app-frere' ' , 
+  template: ` 
+    {{message}} 
+    <button (clic) =" newMessage () "> Nouveau message </ button> 
+  ` , 
+  styleUrls: [ ' ./sibling.component. css ' ] 
+}) 
+la  classe d' exportation SiblingComponent implémente OnInit {
+
+  message:string;
+
+  constructeur ( données privées : DataService ) {}
+
+  ngOnInit () { this .data.currentMessage.subscribe ( message => this .message = message)   }
+     
+
+
+  newMessage () { this .data.changeMessage ( "Hello from Sibling" )   }
+    
+
+
+}
