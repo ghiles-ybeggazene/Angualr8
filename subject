@@ -1,1 +1,94 @@
 
+import { Component, Injectable } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+
+import { Http, Response } from '@angular/http';
+
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+
+@Injectable()
+export class MyAwesomeService{
+  _streamingData: Subject<any> = new Subject<any>();
+  streamingObservable = {};
+  
+  constructor(private http: Http) {}
+  
+  get streamingData$(){
+    return this._streamingData.asObservable();
+  }
+  
+  private extractData(res: Response) {
+    let body = res.json();<
+    return body || {};
+  }
+  
+  getData(): Observable<any> {
+    let api = 'https://cors-test.appspot.com/test';
+
+    return this.http.get(api)
+      .map(this.extractData);
+  }
+  
+  
+  getLiveData(){
+    if(!!this.streamingObservable){
+    this.streamingObservable =  Observable.interval(1000)
+      .mergeMap(() => this.getData())
+      .subscribe(
+        res => this._streamingData.next(res),
+        err => this.error = err
+      );
+    }
+    return this.streamingObservable;
+  }
+}
+
+@Component({
+  selector: 'my-app',
+  template: `<h3>Live streaming data</h3>
+   <hr />
+   <child-comp-1></child-comp-1>
+   <hr />
+   <child-comp-2></child-comp-2>
+  `
+})
+export class AppComponent { }
+
+@Component({
+  selector: 'child-comp-1',
+  template: `<h3>Child component</h3>
+   Streaming Data: {{ data.status | async }}
+  `
+})
+export class ChildComponent1 {
+  data = "Hello!!";
+  constructor(private myservice:MyAwesomeService){
+    this.data= myservice.streamingData$;
+  }
+}
+
+@Component({
+  selector: 'child-comp-2',
+  template: `<h3>Child component 2</h3>
+   Streaming Data: {{ data.status | async }}
+  `
+})
+
+export class ChildComponent2 {
+  data = "Hello!!";
+  constructor(private myservice:MyAwesomeService){
+    this.data= myservice.streamingData$;
+    console.log(this.myservice);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
