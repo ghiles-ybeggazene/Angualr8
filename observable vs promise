@@ -1,0 +1,15 @@
+Observables vs Promises
+La différence entre les Observables et les Promises se résument en trois points.
+
+Je t’appelle quand je veux
+Les Observables sont appelés au moment ou quelqu’un subscribe à ce dernier. Contrairement à cela, les Promises sont appelées directement à leur création. On gâche en quelque sorte des ressources en utilisant des Promises.. C’est un peu le même principe que l’injection de dépendance (lazy)
+
+Stop!
+Il est possible de cancel un Observable qui est en cours d’execution. Avec une Promise, c’est impossible. Une fois que la Promise est lancée, soit elle renvoie un success (then), soit elle renvoie une erreur (catch).
+
+On peut gérer un cancel d’un Observable avec la function de callback onCancel().
+
+Support RxJs
+On peut utiliser avec les Observable, tous les opérateurs liés à la lib RxJs (map, filter, reduce, …).
+
+Nous allons voir par la suite comme c’est pratique et comment les exploiter!
