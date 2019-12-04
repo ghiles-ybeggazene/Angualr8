@@ -1,0 +1,4 @@
+OpenIdConnect - qu'est-ce que c'est ?
+Le protocole Oauth 2.0 commence a être bien connu de nos jours et permet de gérer la notion d'autorisations dans vos applications. 
+Cependant, il lui manque la partie identification/authentication et c'est justement ce que normalise OpenIdConnect, aussi appelé OIDC.
+Tout cela est basé sur REST via du HTTPS bien sûr.
