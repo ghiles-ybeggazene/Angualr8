@@ -1,0 +1,19 @@
+  <nav class="navbar navbar-expand-lg header-menu no-padding">
+          <button (click)="MenuAction()" mat-flat-button color="primary" class="menu-toggle" aria-label="menu" style="height: 100%;position: absolute;left: 0px;border-radius: 0% 50px 50px 00% !important;">
+        <div class="">
+          <button (click)="MenuAction()" mat-flat-button color="primary" class="menu-toggle" aria-label="menu" style="height: 100%;position: absolute;top:0px;left: 0px;border-radius: 0% 50px 50px 00% !important;">
+              <mat-icon>menu</mat-icon>
+            <span>Menu</span>
+            </button> 
+        
+            <a routerLink="/" routerLinkActive="active" style="margin: auto; text-align: center;">
+              <img src="http://clem.mobi/img/logoclem.png" style="margin: auto; text-align: center;">
+          </div>
+          <div class="float-sm-right mx-lg-auto mr-3">
+            <a class="float-right" routerLink="/" routerLinkActive="active" style="margin: auto; text-align: center;">
+              <img class="float-right img-fluid " src="http://clem.mobi/img/logoclem.png" style="margin: auto; text-align: center;">
+            </a>
+          </div>
+        
+        </nav>
+    
